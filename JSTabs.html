@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #998e8e;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+<body>
+
+<h2>JavaScript Tabs</h2>
+
+
+<div class="tab">
+  <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'tab1')">tab1</button>
+  <button class="tablinks" onclick="openTab(event, 'tab2')">tab2</button>
+  <button class="tablinks" onclick="openTab(event, 'tab3')">tab3</button>
+</div>
+
+<div id="tab1" class="tabcontent">
+  <h3>tab1</h3>
+  <p>This is Tab 1</p>
+</div>
+
+<div id="tab2" class="tabcontent">
+  <h3>tab2</h3>
+  <p>This is Tab 2</p> 
+</div>
+
+<div id="tab3" class="tabcontent">
+  <h3>tab3</h3>
+  <p>This is Tab 3</p>
+</div>
+</body>
+<script>
+function openTab(evt, tabs) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabs).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+    document.getElementById("defaultOpen").click();
+
+</script>
+   
+
+</html>
